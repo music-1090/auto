@@ -1,0 +1,5 @@
+pymongo[srv]
+python-dotenv
+pyTelegramBotAPI
+certifi
+dnspython
