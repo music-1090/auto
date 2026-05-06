@@ -229,7 +229,7 @@ def main_buttons():
         InlineKeyboardButton(" စကားပြော ", url="https://t.me/myanmar_music_Bot2027"),
         InlineKeyboardButton(
             "➕ ထည့်သွင်းရန်",
-            url="https://t.me/MYANMAR_FRIEND_BOT?startgroup=s&delete_message+manage_video_chats_message+invite_users"
+            url="https://t.me/chitsayalay_bot?startgroup=s&delete_message+manage_video_chats_message+invite_users"
         ),
         InlineKeyboardButton("Botပြုလုပ်လိုပါက", url="tg://resolve?domain=HEX_KING9&text=Botအသစ်လုပ်ချင်လို့ပါ")
     )
