@@ -701,11 +701,11 @@ def start(message):
             join_kb = InlineKeyboardMarkup()
             clean_channel = FORCE_JOIN_CHANNEL.replace('@', '')
             join_kb.add(InlineKeyboardButton("Channal Join ပေးပါ", url=f"https://t.me/{clean_channel}"))
-            join_kb.add(InlineKeyboardButton("🔄  (စစ်ဆေးမည်)", url=f"https://t.me/MYANMAR_FRIEND_BOT?start=start"))
+            join_kb.add(InlineKeyboardButton("🔄  (စစ်ဆေးမည်)", url=f"https://t.me/chitsayalay_bot?start=start"))
             
             return bot.send_message(
                 message.chat.id, 
-                "<tg-emoji emoji-id='6269316311172518259'>❌</tg-emoji> <b>အသုံးပြုခွင့်မရှိသေးပါ!</b> <tg-emoji emoji-id='6257780484281997093'>❌</tg-emoji>\n\nဒီ Bot ကို သုံးဖို့အတွက် CHELLEL ကို အရင် Join ပေးရပါမယ်။",
+                "<tg-emoji emoji-id='6269316311172518259'>❌</tg-emoji> <b>အသုံးပြုခွင့်မရှိသေးပါ!</b> <tg-emoji emoji-id='6257780484281997093'>❌</tg-emoji>\n\nဒီ Bot ကို သုံးဖို့အတွက် CHALLEL ကို အရင် Join ပေးရပါမယ်။",
                 reply_markup=join_kb
             )
 
@@ -973,7 +973,7 @@ def handle_all(message):
             join_kb = InlineKeyboardMarkup()
             clean_channel = FORCE_JOIN_CHANNEL.replace('@', '')
             join_kb.add(InlineKeyboardButton(" Channel join", url=f"https://t.me/{clean_channel}"))
-            join_kb.add(InlineKeyboardButton(" Join (စစ်ဆေးမည်)", url=f"https://t.me/MYANMAR_FRIEND_BOT?start=start"))
+            join_kb.add(InlineKeyboardButton(" Join (စစ်ဆေးမည်)", url=f"https://t.me/chitsayalay_bot?start=start"))
             return bot.send_message(
                 message.chat.id,
                 "<tg-emoji emoji-id='6257780484281997093'>❌</tg-emoji> <b>အသုံးပြုခွင့်မရှိသေးပါ!</b>\n\nဒီ Bot ကို သုံးဖို့အတွက် CHANNEL ကို အရင် Join ပေးရပါမယ်။",
