@@ -230,7 +230,8 @@ def main_buttons():
         InlineKeyboardButton(
             "➕ ထည့်သွင်းရန်",
             url="https://t.me/MYANMAR_FRIEND_BOT?startgroup=s&delete_message+manage_video_chats_message+invite_users"
-        )
+        ),
+        InlineKeyboardButton("Botပြုလုပ်လိုပါက", url="tg://resolve?domain=HEX_KING9&text=Botအသစ်လုပ်ချင်လို့ပါ")
     )
     return kb
 
@@ -588,7 +589,7 @@ def show_chat_id(message):
 def delete_all_sticker_memory(message):
     # only bot owner(s) can run this
     if message.from_user.id not in ADMIN_IDS:
-        return bot.reply_to(message, "❌ ဒီ command ကို Bot Owner သာ အသုံးပြုနိုင်ပါသည်။")
+        return bot.reply_to(message, "❌ ဒီ command ကို  Owner သာ အသုံးပြုနိုင်ပါသည်။")
 
     try:
         count = brain_collection.count_documents({"sticker_id": {"$ne": None, "$ne": ""}})
@@ -605,7 +606,7 @@ def delete_all_sticker_memory(message):
 def broadcast(message):
     # ၁။ Admin ဟုတ်မဟုတ် အရင်စစ်မယ်
     if message.from_user.id not in ADMIN_IDS:
-        return bot.reply_to(message, "❌ ဒီ Command ကို Bot Owner သာ သုံးနိုင်ပါတယ်။")
+        return bot.reply_to(message, "❌ ဒီ Command က Owner သာ သုံးနိုင်ပါတယ်။")
     
     # ၂။ ပို့မယ့် Message ကို ယူမယ် (Reply ထောက်ထားတဲ့ message ကို copy ကူးမှာပါ)
     if not message.reply_to_message:
@@ -704,17 +705,17 @@ def start(message):
             
             return bot.send_message(
                 message.chat.id, 
-                "<tg-emoji emoji-id='6269316311172518259'>❌</tg-emoji> <b>အသုံးပြုခွင့်မရှိသေးပါ!</b> <tg-emoji emoji-id='6257780484281997093'>❌</tg-emoji>\n\nဒီ Bot ကို သုံးဖို့အတွက် Group ကို အရင် Join ပေးရပါမယ်။",
+                "<tg-emoji emoji-id='6269316311172518259'>❌</tg-emoji> <b>အသုံးပြုခွင့်မရှိသေးပါ!</b> <tg-emoji emoji-id='6257780484281997093'>❌</tg-emoji>\n\nဒီ Bot ကို သုံးဖို့အတွက် CHELLEL ကို အရင် Join ပေးရပါမယ်။",
                 reply_markup=join_kb
             )
 
     # ၃။ Join ထားပြီးသူများအတွက် ပြသမည့် စာသား
     bot.send_message(
         message.chat.id, 
-        "<tg-emoji emoji-id='5251299553239398548'>🤖</tg-emoji> <b>𝙼𝚢𝚊𝚗𝚖𝚊𝚛 𝙵𝚛𝚒𝚎𝚗𝚍 Bot Online!</b>\n\n"
+        "<tg-emoji emoji-id='5251299553239398548'>🤖</tg-emoji> <b>𝙼𝚢𝚊𝚗𝚖𝚊𝚛 𝙵𝚛𝚒𝚎𝚗𝚍 Group Help Bot Online!</b>\n\n"
         "<tg-emoji emoji-id='5240241223632954241'>🚫</tg-emoji> Bio / Join / Link spam auto delete\n"
         "<tg-emoji emoji-id='6271786398404055377'>⚠️</tg-emoji> 3 Warnings = Auto Mute\n\n"
-        "<tg-emoji emoji-id='5226945370684140473'>➕</tg-emoji> Bot ကို Group ထဲထည့်ပြီး Admin ပေးထားပါ။ မူရင်းရေးသားသူအား crdပါဗျာ<tg-emoji emoji-id='5226945370684140473'>➕</tg-emoji> ",
+        "<tg-emoji emoji-id='5226945370684140473'>➕</tg-emoji> Bot ကို Group ထဲထည့်ပြီး Admin ပေးထားပါ။<tg-emoji emoji-id='5226945370684140473'>➕</tg-emoji>\n မူရင်းရေးသားသူအား crdပါဗျာ ",
         reply_markup=main_buttons()
     )
             
@@ -724,7 +725,7 @@ def start(message):
 def help_command(message):
     help_text = (
         "👋 Owner အတွက် အသုံးပြုနိုင်သော Command များ-\n"
-        "/setmute\n /addword (global)\n /delword (global)\n /broadcast\n /d\n /list\n /astk\n"
+        "/setmute\n /addword (global)\n /delword (global)\n /broadcast\n /d\n /list\n"
         "/setwarn [message]\n /getwarn\n"
         "Group admins: /setword [word]\n /delword [word]\n"
     )
@@ -754,7 +755,7 @@ def help_command(message):
     else:
         # Non-owner callers get a short info message
         try:
-            bot.reply_to(message, "❌ ဒီ Command ကို Bot Owner သာ သုံးနိုင်ပါတယ်။")
+            bot.reply_to(message, "❌ ဒီ Command ကို  Owner သာ သုံးနိုင်ပါတယ်။")
         except Exception:
             pass
 
@@ -878,7 +879,7 @@ def welcome_group(message):
                     print(f"   Bot ID: {bot_id}, Is Bot: {user.id == bot_id}")
                     # Bot ကိုယ်တိုင် Group ထဲ ရောက်သွားတဲ့အခါ နှုတ်ဆက်ရန်
                     if user.id == bot_id:
-                        msg = "<tg-emoji emoji-id='5251299553239398548'>🤖</tg-emoji> <b> 𝙼𝚢𝚊𝚗𝚖𝚊𝚛 𝙵𝚛𝚒𝚎𝚗𝚍 Bot Active!</b>\n\n<tg-emoji emoji-id='5215613971352004352'>❤️</tg-emoji> ကျွန်​ေတာ်ကို Admin ပေးထားဖို့ မမေ့ပါနဲ့ဗျာ။ <tg-emoji emoji-id='5215361191051798408'>🤍</tg-emoji>\n\nSpam linkတွေနဲ့ bioတွေကို အလိုအလျောက် ဖျက်ပေးပါမယ်။",
+                        msg = "<tg-emoji emoji-id='5251299553239398548'>🤖</tg-emoji> <b> 𝙼𝚢𝚊𝚗𝚖𝚊𝚛 𝙵𝚛𝚒𝚎𝚗𝚍 Group Help Bot Active!</b>\n\n<tg-emoji emoji-id='5215613971352004352'>❤️</tg-emoji> ကျွန်​ေတာ်ကို Admin ပေးထားဖို့ မမေ့ပါနဲ့ဗျာ။ <tg-emoji emoji-id='5215361191051798408'>🤍</tg-emoji>\n\nSpam linkတွေနဲ့ bioတွေကို အလိုအလျောက် ဖျက်ပေးပါမယ်။",
                         reply_markup=main_buttons()
                         bot.send_message(message.chat.id, msg, reply_markup=main_buttons())
                         print(f"✅ Bot welcome message sent to group {message.chat.id}")
@@ -902,7 +903,7 @@ def handle_chat_creation(message):
         # do not auto-approve; groups must be added manually with /addgp
         bot.send_message(
             message.chat.id,
-            "<tg-emoji emoji-id='5251299553239398548'>🤖</tg-emoji> Guard Help Bot Active!\n"
+            "<tg-emoji emoji-id='5251299553239398548'>🤖</tg-emoji> Myanmar friend Group Help Bot Active!\n"
             "Bio/Join/Link spam remove အတွက် Admin ပေးထားဖို့ လိုအပ်ပါတယ်။",
             reply_markup=main_buttons()
         )
@@ -975,7 +976,7 @@ def handle_all(message):
             join_kb.add(InlineKeyboardButton(" Join (စစ်ဆေးမည်)", url=f"https://t.me/MYANMAR_FRIEND_BOT?start=start"))
             return bot.send_message(
                 message.chat.id,
-                "<tg-emoji emoji-id='6257780484281997093'>❌</tg-emoji> <b>အသုံးပြုခွင့်မရှိသေးပါ!</b>\n\nဒီ Bot ကို သုံးဖို့အတွက် Group ကို အရင် Join ပေးရပါမယ်။",
+                "<tg-emoji emoji-id='6257780484281997093'>❌</tg-emoji> <b>အသုံးပြုခွင့်မရှိသေးပါ!</b>\n\nဒီ Bot ကို သုံးဖို့အတွက် CHANNEL ကို အရင် Join ပေးရပါမယ်။",
                 reply_markup=join_kb
             )
 
