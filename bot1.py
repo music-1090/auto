@@ -225,7 +225,7 @@ def parse_time(text):
 def main_buttons():
     kb = InlineKeyboardMarkup(row_width=2)
     kb.add(
-        InlineKeyboardButton("ဘဝ သမားလေး", url="https://t.me/HANTHAR999"),
+        InlineKeyboardButton("ဘဝ သမားလေး", url="https://t.me/HANTHAR_1999"),
         InlineKeyboardButton(" စကားပြော ", url="https://t.me/myanmar_music_Bot2027"),
         InlineKeyboardButton(
             "➕ ထည့်သွင်းရန်",
@@ -629,13 +629,13 @@ def broadcast(message):
         try:
             # copy_message သည် Original Message ၏ ပုံစံ၊ Caption နှင့် Premium Emoji အားလုံးကို 
             # မူရင်းအတိုင်း ကူးယူပေးပို့သည်။ (Photo, Video, Sticker, Text, Audio အကုန်ရသည်)
-            bot.copy_message(
+            bot.forword_message(
                 chat_id=tid, 
                 from_chat_id=message.chat.id, 
                 message_id=target_msg.message_id
             )
             success += 1
-            time.sleep(0.1) # မြန်နှုန်းမြှင့်ထားသော်လည်း Flood မဖြစ်အောင် အနည်းငယ်ခြားထားသည်
+            time.sleep(0.3) # မြန်နှုန်းမြှင့်ထားသော်လည်း Flood မဖြစ်အောင် အနည်းငယ်ခြားထားသည်
         except Exception as e:
             print(f"Broadcast failed for {tid}: {e}")
             fail += 1
